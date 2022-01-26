@@ -35,3 +35,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
