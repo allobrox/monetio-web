@@ -1,4 +1,12 @@
 .icon {
-    height: 1rem;
-    /*padding-bottom: .1rem;*/
+    height: 2rem;
+    padding-bottom: 0.1rem;
+}
+
+.btn-round {
+    border-radius: 1rem;
+}
+
+.nav-link-dark {
+    color: #413149;
 }
