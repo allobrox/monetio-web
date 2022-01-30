@@ -89,3 +89,44 @@
 .menu_item_icon {
     height: 1.1rem;
 }
+
+.desktop_menu {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar_icon {
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu_item_text {
+        font-size: 1rem;
+    }
+
+    .desktop_menu {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 2;
+    }
+
+    .desktop_menu_part {
+        display: flex;
+    }
+
+    .desktop_menu div {
+        padding-left: 2rem;
+    }
+
+    .desktop_menu_part:last-of-type > .menu_item:last-of-type {
+        padding-right: 1rem;
+    }
+}

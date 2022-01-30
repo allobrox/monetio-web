@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
 import styles from "./AppNavbar.module.css";
 import Ham from "../../../assets/bars.svg";
-import { MenuItem } from "../MenuItem";
+import { DesktopMenu } from "./DesktopMenu";
+import { Menu } from "./Menu";
 
 export const AppNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,18 +20,8 @@ export const AppNavbar = () => {
                     className={styles.navbar_icon}
                     fill={"#dad7dc"}
                 />
-                {isOpen && (
-                    <div className={styles.menu}>
-                        <MenuItem iconName="Balance" />
-                        <MenuItem iconName="Income" />
-                        <MenuItem iconName="Expense" />
-                        <MenuItem iconName="Savings" />
-                        <MenuItem iconName="Debt" />
-                        <MenuItem iconName="Planning" />
-                        <MenuItem iconName="Settings" />
-                        <MenuItem iconName="Log out" />
-                    </div>
-                )}
+                <DesktopMenu />
+                {isOpen && <Menu />}
             </div>
         </Fragment>
     );
