@@ -1,9 +1,12 @@
 import BalanceIcon from "../../assets/analytics.svg";
 import DebtIcon from "../../assets/chart-line-down.svg";
 import ExpenseIcon from "../../assets/inbox-out.svg";
+import FAQIcon from "../../assets/question.svg";
 import IncomeIcon from "../../assets/inbox-in.svg";
+import LoginIcon from "../../assets/sign-in.svg";
 import LogoutIcon from "../../assets/sign-out.svg";
 import PlanningIcon from "../../assets/sliders-h.svg";
+import PricingIcon from "../../assets/dollar-sign.svg";
 import SavingsIcon from "../../assets/piggy-bank.svg";
 import SettingsIcon from "../../assets/cog.svg";
 import styles from "./AppNavbar/AppNavbar.module.css";
@@ -31,11 +34,21 @@ export function MenuItem({ iconName }: { iconName: string }) {
             );
             route = "/budgeting/expense";
             break;
+        case "FAQ":
+            iconComponent = <FAQIcon className={iconClass} fill={iconColor} />;
+            route = "/faq";
+            break;
         case "Income":
             iconComponent = (
                 <IncomeIcon className={iconClass} fill={iconColor} />
             );
             route = "/budgeting/income";
+            break;
+        case "Login":
+            iconComponent = (
+                <LoginIcon className={iconClass} fill={iconColor} />
+            );
+            route = "/login";
             break;
         case "Log out":
             iconComponent = (
@@ -48,6 +61,12 @@ export function MenuItem({ iconName }: { iconName: string }) {
                 <PlanningIcon className={iconClass} fill={iconColor} />
             );
             route = "/budgeting/planning";
+            break;
+        case "Pricing":
+            iconComponent = (
+                <PricingIcon className={iconClass} fill={iconColor} />
+            );
+            route = "/pricing";
             break;
         case "Savings":
             iconComponent = (

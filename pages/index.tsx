@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { IndexNavbar } from "../components/navbar/indexNavbar";
+import { IndexNavbar } from "../components/navbar/IndexNavbar/IndexNavbar";
 
 const Home: NextPage = () => {
     return (
@@ -13,6 +13,7 @@ const Home: NextPage = () => {
 
             <main>
                 <IndexNavbar />
+                <div>Index page</div>
             </main>
         </div>
     );

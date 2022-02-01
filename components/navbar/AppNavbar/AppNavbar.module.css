@@ -127,6 +127,6 @@
     }
 
     .desktop_menu_part:last-of-type > .menu_item:last-of-type {
-        padding-right: 1rem;
+        padding-right: 5rem;
     }
 }

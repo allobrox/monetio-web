@@ -2,20 +2,21 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { IndexNavbar } from "../components/navbar/IndexNavbar/IndexNavbar";
 
-const Pricing: NextPage = () => {
+const FAQ: NextPage = () => {
     return (
         <div>
             <Head>
-                <title>Pricing</title>
-                <meta name="description" content="Pricing" />
+                <title>monetio</title>
+                <meta name="description" content="Budgeting app" />
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
+
             <main>
                 <IndexNavbar />
-                <p>Pricing page</p>
+                <div>FAQ page</div>
             </main>
         </div>
     );
 };
 
-export default Pricing;
+export default FAQ;
