@@ -1,0 +1,138 @@
+.balance {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    --balance-padding: 1.25rem 0;
+    --balance-border-width: 1px;
+}
+
+.balance_view {
+    padding: 2rem 1rem 0;
+    flex-grow: 1;
+    background-color: var(--main-dark-color-light2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: var(--main-dark-color-light1);
+    border-radius: 2rem;
+    height: 15rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.balance_card {
+    display: inline-grid;
+    grid-template-columns: repeat(2, [col-start] 1fr);
+}
+
+.income_balance {
+    padding: var(--balance-padding);
+    color: var(--main-dark-color-light8);
+    border-right-color: var(--main-dark-color-light8);
+    border-right-width: var(--balance-border-width);
+    border-right-style: solid;
+    border-bottom-color: var(--main-dark-color-light8);
+    border-bottom-width: var(--balance-border-width);
+    border-bottom-style: solid;
+    text-align: center;
+}
+
+.expense_balance {
+    padding: var(--balance-padding);
+    color: var(--main-dark-color-light8);
+    border-left-color: var(--main-dark-color-light8);
+    border-left-width: var(--balance-border-width);
+    border-left-style: solid;
+    border-bottom-color: var(--main-dark-color-light8);
+    border-bottom-width: var(--balance-border-width);
+    border-bottom-style: solid;
+    text-align: center;
+}
+
+.debt_balance {
+    padding: var(--balance-padding);
+    color: var(--main-dark-color-light8);
+    border-right-color: var(--main-dark-color-light8);
+    border-right-width: var(--balance-border-width);
+    border-right-style: solid;
+    border-top-color: var(--main-dark-color-light8);
+    border-top-width: var(--balance-border-width);
+    border-top-style: solid;
+    text-align: center;
+}
+
+.savings_balance {
+    padding: var(--balance-padding);
+    color: var(--main-dark-color-light8);
+    border-left-color: var(--main-dark-color-light8);
+    border-left-width: var(--balance-border-width);
+    border-left-style: solid;
+    border-top-color: var(--main-dark-color-light8);
+    border-top-width: var(--balance-border-width);
+    border-top-style: solid;
+    text-align: center;
+}
+
+.to {
+    color: var(--main-dark-color-light8);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .balance_view {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .card {
+        width: 30vw;
+        height: 50vh;
+        justify-content: space-between;
+    }
+
+    .balance_card {
+        margin-top: 1rem;
+    }
+
+    .to_wrapper {
+        margin-bottom: 1rem;
+    }
+
+    .to {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .balance {
+        --wide-screen-font-size: 1.5rem;
+    }
+
+    .income_balance {
+        font-size: var(--wide-screen-font-size);
+    }
+
+    .expense_balance {
+        font-size: var(--wide-screen-font-size);
+    }
+
+    .debt_balance {
+        font-size: var(--wide-screen-font-size);
+    }
+
+    .savings_balance {
+        font-size: var(--wide-screen-font-size);
+    }
+
+    .to {
+        font-size: var(--wide-screen-font-size);
+    }
+}

@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { AppNavbar } from "../../../components/navbar/AppNavbar/AppNavbar";
+import { BalanceView } from "./BalanceView";
+import styles from "../../../styles/Balance.module.css";
 
 const Index: NextPage = () => {
     return (
@@ -10,9 +12,9 @@ const Index: NextPage = () => {
                 <meta name="description" content="Monthly balance" />
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
-            <main>
+            <main className={styles.balance}>
                 <AppNavbar />
-                <p>Balance page</p>
+                <BalanceView />
             </main>
         </div>
     );
