@@ -1,4 +1,4 @@
-import styles from "../../../styles/Balance.module.css";
+import styles from "../../../../styles/Balance.module.css";
 import { Balances } from "./Balances";
 
 export const BalanceCard = () => {
