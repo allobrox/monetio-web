@@ -6,15 +6,27 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
+    --primary: #111821;
+    --primary2: #233142;
+    --primary3: #354a63;
+    --primary3-light3: #718091;
+    --primary3-light4: #8592a1;
+    --secondary: #59a52c;
+    --secondary2: #6fca3a;
+
     --main-dark-color: #493752;
-    --main-dark-color-dark1: #413149;
-    --main-dark-color-light1: #5b4b63;
-    --main-dark-color-light2: #6d5e74;
+    /*--main-dark-color-dark1: #413149;*/
+    --main-dark-color-dark1: var(--primary);
+    /*--main-dark-color-light1: #5b4b63;*/
+    --main-dark-color-light1: var(--primary3);
+    /*--main-dark-color-light2: #6d5e74;*/
+    --main-dark-color-light2: var(--primary3-light3);
     --main-dark-color-light8: #dad7dc;
-    --green-dark: #59a52c;
+    /*--green-dark: #59a52c;*/
+    --green-dark: var(--secondary);
     --green-dark-dark-4: #35631a;
     --green-dark-light1: #69ae41;
-    --green-light: #6fca3a;
+    --green-light: var(--secondary2);
 }
 
 a {

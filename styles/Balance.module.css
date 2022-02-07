@@ -18,12 +18,13 @@
 .card {
     background-color: var(--main-dark-color-light1);
     border-radius: 2rem;
-    height: 15rem;
+    /*height: 15rem;*/
     padding: 1rem;
     margin: 1rem 0;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    color: var(--main-dark-color-light8);
 }
 
 .balance_card {
@@ -31,69 +32,88 @@
     grid-template-columns: repeat(2, [col-start] 1fr);
 }
 
-.income_balance {
-    padding: var(--balance-padding);
-    color: var(--main-dark-color-light8);
-    border-right-color: var(--main-dark-color-light8);
-    border-right-width: var(--balance-border-width);
-    border-right-style: solid;
+.category_table_header {
+    display: flex;
+}
+
+.category_table_header > p:first-child {
+    flex-grow: 1;
+}
+
+.category_table_header > p:nth-child(2) {
+    flex-grow: 0.2;
+}
+
+.category_table_header > p:nth-child(3) {
+    flex-grow: 0.2;
+}
+
+.category_table_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.category_table_row {
+    display: flex;
     border-bottom-color: var(--main-dark-color-light8);
-    border-bottom-width: var(--balance-border-width);
+    border-bottom-width: 1px;
     border-bottom-style: solid;
-    text-align: center;
 }
 
-.expense_balance {
-    padding: var(--balance-padding);
-    color: var(--main-dark-color-light8);
-    border-left-color: var(--main-dark-color-light8);
-    border-left-width: var(--balance-border-width);
-    border-left-style: solid;
-    border-bottom-color: var(--main-dark-color-light8);
-    border-bottom-width: var(--balance-border-width);
-    border-bottom-style: solid;
-    text-align: center;
+.category_table_row > p:first-child {
+    flex-grow: 1;
 }
 
-.debt_balance {
-    padding: var(--balance-padding);
-    color: var(--main-dark-color-light8);
-    border-right-color: var(--main-dark-color-light8);
-    border-right-width: var(--balance-border-width);
-    border-right-style: solid;
-    border-top-color: var(--main-dark-color-light8);
-    border-top-width: var(--balance-border-width);
-    border-top-style: solid;
-    text-align: center;
+.category_table_row > p:nth-child(2) {
+    flex-grow: 0.2;
 }
 
-.savings_balance {
-    padding: var(--balance-padding);
-    color: var(--main-dark-color-light8);
-    border-left-color: var(--main-dark-color-light8);
-    border-left-width: var(--balance-border-width);
-    border-left-style: solid;
-    border-top-color: var(--main-dark-color-light8);
-    border-top-width: var(--balance-border-width);
-    border-top-style: solid;
-    text-align: center;
+.category_table_row > p:nth-child(3) {
+    flex-grow: 0.2;
 }
 
-.to {
-    color: var(--main-dark-color-light8);
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+.category_table_summary {
+    display: flex;
+    /*TODO add fix ratio to columns*/
+}
+
+.category_table_summary > p:first-child {
+    flex-grow: 1;
+    font-style: oblique;
+}
+
+.category_table_summary > p:nth-child(2) {
+    flex-grow: 0.2;
+}
+
+.category_table_summary > p:nth-child(3) {
+    flex-grow: 0.2;
+}
+
+.my_pie_chart {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    background: conic-gradient(
+        brown 0%,
+        black 0% 0.55%,
+        blue 0.55% 6.08%,
+        green 6.08% 13.68%,
+        yellow 13.68% 23.27%,
+        orange 23.27% 40.47%,
+        red 40.47%
+    );
 }
 
 @media only screen and (min-width: 768px) {
     .balance_view {
         flex-direction: row;
-        justify-content: space-around;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        /*justify-content: space-around;*/
     }
 
     .card {
-        width: 30vw;
-        height: 50vh;
         justify-content: space-between;
     }
 
@@ -108,6 +128,19 @@
     .to {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
+    }
+
+    .balance_container {
+        flex-grow: 1;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .transaction_container {
+        flex-grow: 0.5;
+        background-color: red;
+        margin-left: 1rem;
     }
 }
 
@@ -134,5 +167,13 @@
 
     .to {
         font-size: var(--wide-screen-font-size);
+    }
+    .balance_container {
+        flex-grow: 1;
+    }
+
+    .transaction_container {
+        flex-grow: 0.5;
+        background-color: red;
     }
 }
