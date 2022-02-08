@@ -1,38 +1,11 @@
 import styles from "../../../../styles/Balance.module.css";
+import { IncomeCard } from "../IncomeCard/IncomeCard";
 
 export const BalanceView = () => {
     return (
         <div className={styles.balance_view}>
             <div className={styles.balance_container}>
-                {/*INCOME card*/}
-                <div className={styles.card}>
-                    <div className={styles.category_table_header}>
-                        <p>INCOME</p>
-                        <p>PLANNED</p>
-                        <p>RECEIVED</p>
-                    </div>
-                    <div className={styles.category_table_container}>
-                        <div className={styles.category_table_row}>
-                            <p>Salary</p>
-                            <p>500k Ft</p>
-                            <p>250k Ft</p>
-                        </div>
-                        <div className={styles.category_table_row}>
-                            <p>Salary</p>
-                            <p>500k Ft</p>
-                            <p>500k Ft</p>
-                        </div>
-                        <div className={styles.category_table_summary}>
-                            <p>Add income</p>
-                            <p>
-                                <strong>1M Ft</strong>
-                            </p>
-                            <p>
-                                <strong>750k Ft</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <IncomeCard />
 
                 <div className={styles.card}>
                     <div className={styles.category_table_container}>

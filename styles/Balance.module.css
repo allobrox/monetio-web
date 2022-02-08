@@ -27,6 +27,11 @@
     color: var(--main-dark-color-light8);
 }
 
+.card_header {
+    display: flex;
+    align-items: center;
+}
+
 .balance_card {
     display: inline-grid;
     grid-template-columns: repeat(2, [col-start] 1fr);
@@ -36,7 +41,7 @@
     display: flex;
 }
 
-.category_table_header > p:first-child {
+.category_table_header > div:first-child {
     flex: var(--category-table-1st-flex);
 }
 
@@ -110,6 +115,11 @@
         orange 23.27% 40.47%,
         red 40.47%
     );
+}
+
+.icon {
+    height: 1rem;
+    padding-left: 0.5rem;
 }
 
 @media only screen and (min-width: 768px) {
