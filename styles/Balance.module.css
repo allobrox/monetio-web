@@ -37,15 +37,17 @@
 }
 
 .category_table_header > p:first-child {
-    flex-grow: 1;
+    flex: var(--category-table-1st-flex);
 }
 
 .category_table_header > p:nth-child(2) {
-    flex-grow: 0.2;
+    flex: var(--category-table-2nd-flex);
+    text-align: var(--text-align-right);
 }
 
 .category_table_header > p:nth-child(3) {
-    flex-grow: 0.2;
+    flex: var(--category-table-3rd-flex);
+    text-align: var(--text-align-right);
 }
 
 .category_table_container {
@@ -55,39 +57,44 @@
 
 .category_table_row {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     border-bottom-color: var(--main-dark-color-light8);
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
 
 .category_table_row > p:first-child {
-    flex-grow: 1;
+    flex: var(--category-table-1st-flex);
 }
 
 .category_table_row > p:nth-child(2) {
-    flex-grow: 0.2;
+    flex: var(--category-table-2nd-flex);
+    text-align: var(--text-align-right);
 }
 
 .category_table_row > p:nth-child(3) {
-    flex-grow: 0.2;
+    flex: var(--category-table-3rd-flex);
+    text-align: var(--text-align-right);
 }
 
 .category_table_summary {
     display: flex;
-    /*TODO add fix ratio to columns*/
 }
 
 .category_table_summary > p:first-child {
-    flex-grow: 1;
+    flex: var(--category-table-1st-flex);
     font-style: oblique;
 }
 
 .category_table_summary > p:nth-child(2) {
-    flex-grow: 0.2;
+    flex: var(--category-table-2nd-flex);
+    text-align: var(--text-align-right);
 }
 
 .category_table_summary > p:nth-child(3) {
-    flex-grow: 0.2;
+    flex: var(--category-table-3rd-flex);
+    text-align: var(--text-align-right);
 }
 
 .my_pie_chart {

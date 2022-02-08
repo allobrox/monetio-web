@@ -28,7 +28,7 @@ export const BalanceView = () => {
                                 <strong>1M Ft</strong>
                             </p>
                             <p>
-                                <strong>250k Ft</strong>
+                                <strong>750k Ft</strong>
                             </p>
                         </div>
                     </div>

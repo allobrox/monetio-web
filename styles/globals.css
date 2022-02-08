@@ -27,6 +27,12 @@ body {
     --green-dark-dark-4: #35631a;
     --green-dark-light1: #69ae41;
     --green-light: var(--secondary2);
+
+    --category-table-1st-flex: 0 0 60%;
+    --category-table-2nd-flex: 0 0 16%;
+    --category-table-3rd-flex: 0 0 16%;
+
+    --text-align-right: end;
 }
 
 a {
