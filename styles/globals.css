@@ -5,7 +5,9 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
     --primary: #111821;
     --primary2: #233142;
     --primary3: #354a63;
@@ -28,9 +30,9 @@ body {
     --green-dark-light1: #69ae41;
     --green-light: var(--secondary2);
 
-    --category-table-1st-flex: 0 0 60%;
-    --category-table-2nd-flex: 0 0 16%;
-    --category-table-3rd-flex: 0 0 16%;
+    --category-table-1st-flex: 0 0 55%;
+    --category-table-2nd-flex: 0 0 20%;
+    --category-table-3rd-flex: 0 0 20%;
 
     --text-align-right: end;
 }

@@ -1,13 +1,15 @@
 .balance {
-    height: 100vh;
-    display: flex;
-    flex-flow: column;
+    height: auto;
+    min-height: 100vh;
     --balance-padding: 1.25rem 0;
     --balance-border-width: 1px;
+    display: flex;
+    flex-direction: column;
 }
 
 .balance_view {
-    padding: 2rem 1rem 0;
+    height: 100%;
+    padding: 5rem 1rem 0;
     flex-grow: 1;
     background-color: var(--main-dark-color-light2);
     display: flex;
@@ -123,7 +125,7 @@
         flex-direction: row;
         padding-left: 5rem;
         padding-right: 5rem;
-        /*justify-content: space-around;*/
+        /*TODO style elements with flex: 0 0 xx%*/
     }
 
     .card {
@@ -144,15 +146,14 @@
     }
 
     .balance_container {
-        flex-grow: 1;
+        flex: 0 0 70%;
         margin-right: 1rem;
         display: flex;
         flex-direction: column;
-        /*TODO style elements with flex: 0 0 xx%*/
     }
 
     .transaction_container {
-        flex-grow: 0.5;
+        flex: 0 0 30%;
         background-color: red;
         margin-left: 1rem;
     }

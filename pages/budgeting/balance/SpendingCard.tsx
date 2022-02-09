@@ -93,7 +93,7 @@ export const SpendingCard = () => {
                         <p>SPENDING</p>
                         <DownIcon className={styles.icon} fill={"#dad7dc"} />
                     </div>
-                    <p>PLANNED: 270k Ft</p>
+                    <p>PLANNED: 270.00k Ft</p>
                     <p>SPENT: 266.65k Ft</p>
                 </div>
             )}
