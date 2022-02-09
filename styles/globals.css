@@ -6,8 +6,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     width: 100vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
     --primary: #111821;
     --primary2: #233142;
     --primary3: #354a63;
@@ -35,6 +33,11 @@ body {
     --category-table-3rd-flex: 0 0 20%;
 
     --text-align-right: end;
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 a {
