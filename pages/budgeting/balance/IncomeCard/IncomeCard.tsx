@@ -2,6 +2,8 @@ import styles from "../../../../styles/Balance.module.css";
 import { Fragment, useState } from "react";
 import DownIcon from "../../../../assets/chevron-down.svg";
 import UpIcon from "../../../../assets/chevron-up.svg";
+import SalaryIcon from "../../../../assets/money-check-alt.svg";
+import AddIcon from "../../../../assets/plus.svg";
 
 export const IncomeCard = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,17 +25,36 @@ export const IncomeCard = () => {
                     </div>
                     <div className={styles.category_table_container}>
                         <div className={styles.category_table_row}>
-                            <p>Salary</p>
+                            <div className={styles.category}>
+                                <SalaryIcon
+                                    className={styles.icon}
+                                    fill={"#dad7dc"}
+                                />
+                                <p>Salary</p>
+                            </div>
+
                             <p>500k Ft</p>
                             <p>250k Ft</p>
                         </div>
                         <div className={styles.category_table_row}>
-                            <p>Salary</p>
+                            <div className={styles.category}>
+                                <SalaryIcon
+                                    className={styles.icon}
+                                    fill={"#dad7dc"}
+                                />
+                                <p>Salary</p>
+                            </div>
                             <p>500k Ft</p>
                             <p>500k Ft</p>
                         </div>
                         <div className={styles.category_table_summary}>
-                            <p>Add income</p>
+                            <div className={styles.category}>
+                                <AddIcon
+                                    className={styles.icon}
+                                    fill={"#dad7dc"}
+                                />
+                                <p>Add income</p>
+                            </div>
                             <p>
                                 <strong>1M Ft</strong>
                             </p>
