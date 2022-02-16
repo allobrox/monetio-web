@@ -2,6 +2,7 @@ import styles from "../../../../styles/Balance.module.css";
 import { IncomeCard } from "../IncomeCard/IncomeCard";
 import { SpendingCard } from "../SpendingCard";
 import { SavingsCard } from "../SavingsCard";
+import { DebtCard } from "../DebtCard";
 
 export const BalanceView = () => {
     return (
@@ -10,6 +11,7 @@ export const BalanceView = () => {
                 <IncomeCard />
                 <SpendingCard />
                 <SavingsCard />
+                <DebtCard />
             </div>
             <div className={styles.transaction_container}></div>
         </div>
