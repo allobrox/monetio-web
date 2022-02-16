@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import navStyles from "../../../../components/navbar/AppNavbar/AppNavbar.module.css";
 import styles from "../../../../styles/Balance.module.css";
 import { AddTransactionTitle } from "./AddTransactionTitle";
+import { CategorySelector } from "./CategorySelector";
 
 export const AddTransactionCard = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export const AddTransactionCard = () => {
                 <AddTransactionTitle
                     title={`Add ${isSpending ? "spending" : "income"}`}
                 />
-                <p>Category selector</p>
+                <CategorySelector />
                 <p>Amount</p>
                 <p>Currency</p>
                 <p>Memo</p>
