@@ -3,6 +3,7 @@ import { IncomeCard } from "../IncomeCard/IncomeCard";
 import { SpendingCard } from "../SpendingCard";
 import { SavingsCard } from "../SavingsCard";
 import { DebtCard } from "../DebtCard";
+import { AddTransactionCard } from "../AddTransactionCard";
 
 export const BalanceView = () => {
     return (
@@ -13,7 +14,7 @@ export const BalanceView = () => {
                 <SavingsCard />
                 <DebtCard />
             </div>
-            <div className={styles.transaction_container}></div>
+            <AddTransactionCard />
         </div>
     );
 };
