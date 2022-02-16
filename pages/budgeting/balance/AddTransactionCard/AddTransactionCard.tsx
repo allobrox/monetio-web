@@ -1,12 +1,18 @@
-import React from "react";
-import navStyles from "../../../components/navbar/AppNavbar/AppNavbar.module.css";
-import styles from "../../../styles/Balance.module.css";
+import React, { useState } from "react";
+import navStyles from "../../../../components/navbar/AppNavbar/AppNavbar.module.css";
+import styles from "../../../../styles/Balance.module.css";
+import { AddTransactionTitle } from "./AddTransactionTitle";
 
 export const AddTransactionCard = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isSpending, setIsSpending] = useState(false);
+
     return (
         <div className={styles.transaction_container}>
             <div>
-                <p>Add income/spending</p>
+                <AddTransactionTitle
+                    title={`Add ${isSpending ? "spending" : "income"}`}
+                />
                 <p>Category selector</p>
                 <p>Amount</p>
                 <p>Currency</p>

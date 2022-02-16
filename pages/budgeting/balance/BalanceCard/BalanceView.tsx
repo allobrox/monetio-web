@@ -3,7 +3,7 @@ import { IncomeCard } from "../IncomeCard/IncomeCard";
 import { SpendingCard } from "../SpendingCard";
 import { SavingsCard } from "../SavingsCard";
 import { DebtCard } from "../DebtCard";
-import { AddTransactionCard } from "../AddTransactionCard";
+import { AddTransactionCard } from "../AddTransactionCard/AddTransactionCard";
 
 export const BalanceView = () => {
     return (
