@@ -15,7 +15,19 @@ export const AddTransactionCard = () => {
                     title={`Add ${isSpending ? "spending" : "income"}`}
                 />
                 <CategorySelector isSpending={isSpending} />
-                <p>Amount</p>
+                <label htmlFor="amount">Amount</label>
+                <input
+                    className={styles.input_field}
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    onKeyPress={event => {
+                        if (!/\d*\.?\d*/.test(event.key)) {
+                            event.preventDefault();
+                        }
+                        // TODO add logic to prevent 2nd dot and allow only 2 digits after dot
+                    }}
+                />
                 <p>Currency</p>
                 <p>Memo</p>
                 <p>Day</p>
