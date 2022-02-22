@@ -195,6 +195,14 @@
         display: flex;
         border-radius: 2rem;
     }
+
+    .category_selector > input {
+        border-radius: 2.5rem;
+        border-color: var(--primary2);
+        background-color: var(--primary3-light8);
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
 }
 
 @media only screen and (min-width: 1440px) {

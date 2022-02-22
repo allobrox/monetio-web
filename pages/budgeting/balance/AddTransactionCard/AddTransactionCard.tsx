@@ -14,7 +14,7 @@ export const AddTransactionCard = () => {
                 <AddTransactionTitle
                     title={`Add ${isSpending ? "spending" : "income"}`}
                 />
-                <CategorySelector />
+                <CategorySelector isSpending={isSpending} />
                 <p>Amount</p>
                 <p>Currency</p>
                 <p>Memo</p>
