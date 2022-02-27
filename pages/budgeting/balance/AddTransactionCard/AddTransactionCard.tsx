@@ -1,57 +1,87 @@
 import React, { useState } from "react";
-import navStyles from "../../../../components/navbar/AppNavbar/AppNavbar.module.css";
-import styles from "../../../../styles/Balance.module.css";
-import { AddTransactionTitle } from "./AddTransactionTitle";
-import { CategorySelector } from "./CategorySelector";
+import {
+    Button,
+    ButtonGroup,
+    ButtonToolbar,
+    Card,
+    FloatingLabel,
+    Form
+} from "react-bootstrap";
+import { SpendingCategories } from "./SpendingCategories";
+import { IncomeCategories } from "./IncomeCategories";
 
 export const AddTransactionCard = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [isSpending, setIsSpending] = useState(false);
 
     return (
-        <div className={styles.transaction_container}>
-            <div>
-                <AddTransactionTitle
-                    title={`Add ${isSpending ? "spending" : "income"}`}
-                />
-                <CategorySelector isSpending={isSpending} />
-                <label htmlFor="amount">Amount</label>
-                <input
-                    className={styles.input_field}
-                    type="number"
-                    id="amount"
-                    name="amount"
-                    onKeyPress={event => {
-                        if (!/\d*\.?\d*/.test(event.key)) {
-                            event.preventDefault();
-                        }
-                        // TODO add logic to prevent 2nd dot and allow only 2 digits after dot
-                    }}
-                />
-                <p>Currency</p>
-                <p>Memo</p>
-                <p>Day</p>
-            </div>
-            <div className={styles.transaction_button_container}>
-                <button
-                    className={navStyles.navbar_button}
-                    onClick={() => alert("TODO implement!")}
-                >
-                    Clear
-                </button>
-                <button
-                    className={navStyles.navbar_button}
-                    onClick={() => alert("TODO implement!")}
-                >
-                    Split
-                </button>
-                <button
-                    className={navStyles.navbar_button}
-                    onClick={() => alert("TODO implement!")}
-                >
-                    Save
-                </button>
-            </div>
-        </div>
+        <Card>
+            <Card.Header>
+                {isSpending ? "Add spending" : "Add income"}
+            </Card.Header>
+            <Card.Body>
+                <Form>
+                    <Form.Group className="mb-3" controlId="formCategorySelect">
+                        <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            checked={isSpending}
+                            label={isSpending ? "Spending" : "Income"}
+                            onChange={() => setIsSpending(!isSpending)}
+                        />
+                        <Form.Select aria-label="Default select example">
+                            {isSpending ? (
+                                <SpendingCategories />
+                            ) : (
+                                <IncomeCategories />
+                            )}
+                        </Form.Select>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formAmount">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Amount"
+                            className="mb-3"
+                        >
+                            <Form.Control type="text" placeholder="Amount" />
+                        </FloatingLabel>
+                        <Form.Group
+                            className="mb-3"
+                            controlId="formCurrencySelect"
+                        >
+                            <Form.Select aria-label="Currency">
+                                <option>Currency</option>
+                                <option value="1">EUR</option>
+                                <option value="2">HUF</option>
+                                <option value="3">USD</option>
+                            </Form.Select>
+                        </Form.Group>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Memo"
+                            className="mb-3"
+                        >
+                            <Form.Control type="text" placeholder="Memo" />
+                        </FloatingLabel>
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Day"
+                            className="mb-3"
+                        >
+                            <Form.Control type="text" placeholder="Day" />
+                        </FloatingLabel>
+                    </Form.Group>
+                    <ButtonToolbar aria-label="Toolbar with button groups">
+                        <ButtonGroup className="me-2" aria-label="First group">
+                            <Button variant="danger">Clear</Button>{" "}
+                            <Button variant="warning">Split</Button>
+                        </ButtonGroup>
+                        <ButtonGroup className="me-2" aria-label="Second group">
+                            <Button variant="primary">Save</Button>
+                        </ButtonGroup>
+                    </ButtonToolbar>
+                </Form>
+            </Card.Body>
+        </Card>
     );
 };
