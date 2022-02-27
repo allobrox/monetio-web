@@ -1,18 +1,21 @@
 import styles from "../../../../styles/Balance.module.css";
-import { IncomeCard } from "../IncomeCard/IncomeCard";
-import { SpendingCard } from "../SpendingCard";
-import { SavingsCard } from "../SavingsCard";
-import { DebtCard } from "../DebtCard";
 import { AddTransactionCard } from "../AddTransactionCard/AddTransactionCard";
+import { Accordion } from "react-bootstrap";
+import { IncomeAccordion } from "../IncomeCard/IncomeAccordion";
+import { SpendingAccordion } from "../SpendingAccordion";
+import { SavingsAccordion } from "../SavingsAccordion";
+import { DebtAccordion } from "../DebtAccordion";
 
 export const BalanceView = () => {
     return (
         <div className={styles.balance_view}>
             <div className={styles.balance_container}>
-                <IncomeCard />
-                <SpendingCard />
-                <SavingsCard />
-                <DebtCard />
+                <Accordion defaultActiveKey="0">
+                    <IncomeAccordion />
+                    <SpendingAccordion />
+                    <SavingsAccordion />
+                    <DebtAccordion />
+                </Accordion>
             </div>
             <AddTransactionCard />
         </div>
