@@ -9,12 +9,13 @@ import {
 } from "react-bootstrap";
 import { SpendingCategories } from "./SpendingCategories";
 import { IncomeCategories } from "./IncomeCategories";
+import styles from "../../../../styles/Balance.module.css";
 
 export const AddTransactionCard = () => {
     const [isSpending, setIsSpending] = useState(false);
 
     return (
-        <Card>
+        <Card className={styles.add_transaction}>
             <Card.Header>
                 {isSpending ? "Add spending" : "Add income"}
             </Card.Header>

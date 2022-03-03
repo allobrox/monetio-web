@@ -119,6 +119,10 @@
     padding-left: 0.5rem;
 }
 
+.add_transaction {
+    margin-top: 2rem;
+}
+
 @media only screen and (min-width: 768px) {
     .balance_view {
         flex-direction: row;
@@ -214,6 +218,10 @@
         padding: 0.5rem;
         margin-top: 0.25rem;
         margin-bottom: 1rem;
+    }
+
+    .add_transaction {
+        margin-top: 0;
     }
 }
 
