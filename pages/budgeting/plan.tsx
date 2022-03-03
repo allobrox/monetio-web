@@ -2,20 +2,20 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { AppNavbar } from "../../components/navbar/AppNavbar/AppNavbar";
 
-const Planning: NextPage = () => {
+const Plan: NextPage = () => {
     return (
         <div>
             <Head>
-                <title>Planning</title>
-                <meta name="description" content="Planning" />
+                <title>Plan</title>
+                <meta name="description" content="Plan" />
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
             <main>
                 <AppNavbar />
-                <p>Planning page</p>
+                <p>Plan page</p>
             </main>
         </div>
     );
 };
 
-export default Planning;
+export default Plan;
