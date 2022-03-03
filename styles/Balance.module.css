@@ -17,6 +17,35 @@
     justify-content: space-between;
 }
 
+.balance_main {
+    display: flex;
+    flex-direction: column;
+}
+.menu_item_icon {
+    height: 1.5rem;
+}
+
+.month_picker {
+    padding-left: 5rem;
+    padding-top: 1rem;
+}
+
+.month_picker > div {
+    display: flex;
+    align-items: center;
+}
+
+.date_picker {
+    position: absolute;
+    z-index: 99999;
+}
+
+.menu_item_text {
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .card {
     background-color: var(--main-dark-color-light1);
     border-radius: 2rem;
