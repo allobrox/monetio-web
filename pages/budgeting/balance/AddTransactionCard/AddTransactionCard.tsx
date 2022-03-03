@@ -72,7 +72,10 @@ export const AddTransactionCard = () => {
                             <Form.Control type="text" placeholder="Day" />
                         </FloatingLabel>
                     </Form.Group>
-                    <ButtonToolbar aria-label="Toolbar with button groups">
+                    <ButtonToolbar
+                        aria-label="Toolbar with button groups"
+                        className={styles.add_transaction_button_bar}
+                    >
                         <ButtonGroup className="me-2" aria-label="First group">
                             <Button variant="danger">Clear</Button>{" "}
                             <Button variant="warning">Split</Button>
