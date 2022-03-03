@@ -1,8 +1,6 @@
 import BalanceIcon from "../../assets/analytics.svg";
 import DebtIcon from "../../assets/chart-line-down.svg";
-import ExpenseIcon from "../../assets/inbox-out.svg";
 import FAQIcon from "../../assets/question.svg";
-import IncomeIcon from "../../assets/inbox-in.svg";
 import LoginIcon from "../../assets/sign-in.svg";
 import LogoutIcon from "../../assets/sign-out.svg";
 import PlanningIcon from "../../assets/sliders-h.svg";
@@ -28,21 +26,9 @@ export function MenuItem({ iconName }: { iconName: string }) {
             iconComponent = <DebtIcon className={iconClass} fill={iconColor} />;
             route = "/budgeting/debt";
             break;
-        case "Expense":
-            iconComponent = (
-                <ExpenseIcon className={iconClass} fill={iconColor} />
-            );
-            route = "/budgeting/expense";
-            break;
         case "FAQ":
             iconComponent = <FAQIcon className={iconClass} fill={iconColor} />;
             route = "/faq";
-            break;
-        case "Income":
-            iconComponent = (
-                <IncomeIcon className={iconClass} fill={iconColor} />
-            );
-            route = "/budgeting/income";
             break;
         case "Login":
             iconComponent = (

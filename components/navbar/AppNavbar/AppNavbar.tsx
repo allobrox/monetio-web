@@ -16,8 +16,6 @@ export const AppNavbar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/budgeting/balance">Balance</Nav.Link>
-                        <Nav.Link href="/budgeting/income">Income</Nav.Link>
-                        <Nav.Link href="/budgeting/expense">Spending</Nav.Link>
                         <Nav.Link href="/budgeting/savings">Saving</Nav.Link>
                         <Nav.Link href="/budgeting/debt">Debt</Nav.Link>
                         <Nav.Link href="/budgeting/plan">Plan</Nav.Link>
