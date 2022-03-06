@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { AppNavbar } from "../../../components/navbar/AppNavbar/AppNavbar";
+import { PlanView } from "./PlanView";
 
 const Plan: NextPage = () => {
     return (
@@ -12,7 +13,7 @@ const Plan: NextPage = () => {
             </Head>
             <main>
                 <AppNavbar />
-                <p>Plan page</p>
+                <PlanView />
             </main>
         </div>
     );

@@ -1,0 +1,19 @@
+.plan_container {
+    padding-top: 1rem;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.slider_input_group {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.category_text_input {
+    width: 5rem;
+}
