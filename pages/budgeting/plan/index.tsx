@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { AppNavbar } from "../../components/navbar/AppNavbar/AppNavbar";
+import { AppNavbar } from "../../../components/navbar/AppNavbar/AppNavbar";
 
 const Plan: NextPage = () => {
     return (
