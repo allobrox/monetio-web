@@ -12,8 +12,12 @@
 .slider_input_group {
     display: flex;
     justify-content: space-evenly;
+    padding-top: 0.5rem;
 }
 
 .category_text_input {
     width: 5rem;
+}
+
+.plan_income_input {
 }

@@ -39,8 +39,6 @@ export const CategorySlider = ({
                     onChange={e => setInputValue(e.target.value)}
                     min={min}
                     max={max}
-                    tooltipPlacement="top"
-                    tooltip="on"
                     step={0.01}
                 />
                 <Form.Control
