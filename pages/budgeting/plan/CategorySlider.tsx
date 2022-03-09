@@ -33,6 +33,7 @@ export const CategorySlider = ({
     return (
         <Form.Group className={styles.category}>
             <Form.Label>{categoryName}</Form.Label>
+            <p className={styles.max}>{`Max: ${max}`}</p>
             <div className={styles.slider_input_group}>
                 <RangeSlider
                     className={styles.slider}
