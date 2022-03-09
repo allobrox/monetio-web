@@ -8,42 +8,44 @@ export const PlanView = () => {
         <div className={styles.plan_container}>
             <Form>
                 <PlannedIncome />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Groceries"}
-                />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Public transportation"}
-                />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Rent"}
-                />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Utilities"}
-                />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Car"}
-                />
-                <CategorySlider
-                    min={0}
-                    max={1000000}
-                    categoryId={"catId"}
-                    categoryName={"Medicine"}
-                />
+                <div className={styles.sliders}>
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Groceries"}
+                    />
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Public transportation"}
+                    />
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Rent"}
+                    />
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Utilities"}
+                    />
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Car"}
+                    />
+                    <CategorySlider
+                        min={0}
+                        max={1000000}
+                        categoryId={"catId"}
+                        categoryName={"Medicine"}
+                    />
+                </div>
             </Form>
         </div>
     );

@@ -35,11 +35,13 @@ export const CategorySlider = ({
             <Form.Label>{categoryName}</Form.Label>
             <div className={styles.slider_input_group}>
                 <RangeSlider
+                    className={styles.slider}
                     value={value}
                     onChange={e => setInputValue(e.target.value)}
                     min={min}
                     max={max}
                     step={0.01}
+                    size={"lg"}
                 />
                 <Form.Control
                     className={styles.category_text_input}
