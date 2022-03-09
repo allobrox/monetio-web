@@ -7,6 +7,7 @@
     flex-direction: column;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-top: 2rem;
 }
 
 .slider_input_group {
@@ -17,6 +18,13 @@
 
 .category_text_input {
     width: 5rem;
+}
+
+.planned_income_group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .plan_income_input {
