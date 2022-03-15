@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import { AppNavbar } from "../../components/navbar/AppNavbar/AppNavbar";
+import { AppNavbar } from "../../../components/navbar/AppNavbar/AppNavbar";
+import { DebtView } from "./DebtView";
 
 const Debt: NextPage = () => {
     return (
@@ -12,7 +13,7 @@ const Debt: NextPage = () => {
             </Head>
             <main>
                 <AppNavbar />
-                <p>Debt page</p>
+                <DebtView />
             </main>
         </div>
     );
