@@ -1,6 +1,6 @@
 import { Accordion, Table } from "react-bootstrap";
 
-export const DebtAccordion = () => {
+export const BalanceDebtAccordion = () => {
     return (
         <Accordion.Item eventKey="3">
             <Accordion.Header>Debt - 4.52M Ft -90k Ft</Accordion.Header>

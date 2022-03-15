@@ -3,8 +3,8 @@ import { AddTransactionCard } from "../AddTransactionCard/AddTransactionCard";
 import { Accordion } from "react-bootstrap";
 import { IncomeAccordion } from "../IncomeCard/IncomeAccordion";
 import { SpendingAccordion } from "../SpendingAccordion";
-import { SavingsAccordion } from "../SavingsAccordion";
-import { DebtAccordion } from "../DebtAccordion";
+import { BalanceSavingsAccordion } from "../BalanceSavingsAccordion";
+import { BalanceDebtAccordion } from "../BalanceDebtAccordion";
 import { MonthSelector } from "../../../../components/MonthSelector";
 
 export const BalanceView = () => {
@@ -19,8 +19,8 @@ export const BalanceView = () => {
                     <Accordion defaultActiveKey="0">
                         <IncomeAccordion />
                         <SpendingAccordion />
-                        <SavingsAccordion />
-                        <DebtAccordion />
+                        <BalanceSavingsAccordion />
+                        <BalanceDebtAccordion />
                     </Accordion>
                 </div>
                 <AddTransactionCard />
