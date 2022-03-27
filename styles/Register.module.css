@@ -1,0 +1,11 @@
+.main_page {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+.register_card {
+    margin: auto;
+    width: 30rem;
+}
