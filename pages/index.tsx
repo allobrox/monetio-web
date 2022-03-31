@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import styles from "../styles/Index.module.css";
+
 import { IndexNavbar } from "../components/navbar/IndexNavbar/IndexNavbar";
 
 const Home: NextPage = () => {
@@ -11,9 +13,9 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
 
-            <main>
+            <main className={styles.background}>
                 <IndexNavbar />
-                <div>Index page</div>
+                <div className={styles.text}>Index page</div>
             </main>
         </div>
     );
