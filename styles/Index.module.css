@@ -1,10 +1,58 @@
-.text {
-    font-family: "Visby Heavy";
-    font-size: 5rem;
-    color: #ffffff;
-    margin-top: 2rem;
+.background {
+    min-height: 100vh;
+    background-image: linear-gradient(
+        -12deg,
+        var(--secondary) 60%,
+        var(--primary) 100%
+    );
+    color: var(--primary3-light4);
 }
 
-.background {
-    background-color: #233142;
+.big_illustration_wrapper {
+    height: 100vh;
+    padding-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.big_i_wrapper {
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big_illustration {
+    height: 20rem;
+    margin-top: 2rem;
+    transform: scale(1.1);
+}
+
+.big_illustration_text_column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.big_illustration_title {
+    font-family: "Visby Heavy", sans-serif;
+    font-size: 5rem;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.big_illustration_subtitle {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.big_illustration_explanation {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
