@@ -7,7 +7,7 @@ export const IndexDesktopMenu = () => {
         <div className={styles.desktop_menu}>
             {/*TODO might require reorder*/}
             <div className={styles.desktop_menu_part}>
-                <MenuItem iconName="Pricing" />
+                <MenuItem iconName="Donation" />
                 <MenuItem iconName="FAQ" />
             </div>
             <div className={styles.desktop_menu_part}>

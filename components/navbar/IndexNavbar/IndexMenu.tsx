@@ -5,7 +5,7 @@ import React from "react";
 export const IndexMenu = () => {
     return (
         <div className={styles.menu}>
-            <MenuItem iconName="Pricing" />
+            <MenuItem iconName="Donation" />
             <MenuItem iconName="FAQ" />
             <MenuItem iconName="Login" />
         </div>

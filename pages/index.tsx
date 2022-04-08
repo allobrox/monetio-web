@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Index.module.css";
-
-import SteppingUp from "../public/illustration/undraw_stepping_up.svg";
 import { IndexNavbar } from "../components/navbar/IndexNavbar/IndexNavbar";
 
 const Home: NextPage = () => {

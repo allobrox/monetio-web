@@ -4,7 +4,7 @@ import FAQIcon from "../../assets/question.svg";
 import LoginIcon from "../../assets/sign-in.svg";
 import LogoutIcon from "../../assets/sign-out.svg";
 import PlanningIcon from "../../assets/sliders-h.svg";
-import PricingIcon from "../../assets/dollar-sign.svg";
+import DonationIcon from "../../assets/dollar-sign.svg";
 import SavingsIcon from "../../assets/piggy-bank.svg";
 import SettingsIcon from "../../assets/cog.svg";
 import styles from "./AppNavbar/AppNavbar.module.css";
@@ -48,11 +48,11 @@ export function MenuItem({ iconName }: { iconName: string }) {
             );
             route = "/budgeting/planning";
             break;
-        case "Pricing":
+        case "Donation":
             iconComponent = (
-                <PricingIcon className={iconClass} fill={iconColor} />
+                <DonationIcon className={iconClass} fill={iconColor} />
             );
-            route = "/pricing";
+            route = "/donation";
             break;
         case "Savings":
             iconComponent = (
