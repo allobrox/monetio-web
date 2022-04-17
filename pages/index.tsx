@@ -6,8 +6,8 @@ const Home: NextPage = () => {
     return (
         <div>
             <Head>
-                <title>monetio</title>
-                <meta name="description" content="Budgeting app" />
+                <title>monetio - the free budgeting app</title>
+                <meta name="description" content="Free budgeting app" />
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
 
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
                         </h1>
                         <h2 className={styles.big_illustration_explanation}>
                             Operating costs payed by donations, source code
-                            available at Github
+                            available at <a href="https://github.com/etusso/monetio-web" target='blank'>Github</a>
                         </h2>
                     </div>
                     <div className={styles.big_i_wrapper}>
