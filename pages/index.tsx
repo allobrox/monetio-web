@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Index.module.css";
-import { IndexNavbar } from "../components/navbar/IndexNavbar/IndexNavbar";
 
 const Home: NextPage = () => {
     return (
@@ -13,7 +12,6 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.background}>
-                <IndexNavbar />
                 <div className={styles.big_illustration_wrapper}>
                     <div className={styles.big_illustration_text_column}>
                         <div className={styles.big_illustration_title}>
