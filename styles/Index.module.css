@@ -1,0 +1,109 @@
+.background {
+    height: 100vh;
+    background-color: var(--primary);
+    color: var(--primary3-light4);
+}
+
+.big_illustration_wrapper {
+    height: 100%;
+    padding-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.big_i_wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big_illustration {
+    height: 18rem;
+    width: 15rem;
+}
+
+.big_illustration_text_column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+.big_illustration_title {
+    font-family: "Visby Heavy", sans-serif;
+    font-size: 5rem;
+    margin-bottom: 3rem;
+}
+
+.big_illustration_subtitle {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.big_illustration_explanation {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+@media only screen and (min-width: 769px) {
+    .big_illustration_wrapper {
+        height: 100vh;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .big_i_wrapper {
+        width: 50vw;
+    }
+
+    .big_illustration {
+        height: 22rem;
+        width: 30rem;
+    }
+
+    .big_illustration_text_column {
+        align-items: flex-start;
+    }
+
+    .big_illustration_title {
+        font-size: 7rem;
+        margin-top: 8rem;
+        margin-bottom: 5rem;
+    }
+
+    .big_illustration_subtitle {
+        font-size: 2rem;
+        text-align: start;
+    }
+
+    .big_illustration_explanation {
+        font-size: 1rem;
+        text-align: start;
+    }
+}
+
+@media only screen and (min-width: 1368px) {
+    .big_illustration_wrapper {
+        margin-left: 5rem;
+    }
+
+    .big_illustration {
+        height: 35rem;
+        width: 35rem;
+    }
+
+    .big_illustration_title {
+        font-size: 8rem;
+        margin-top: 15rem;
+    }
+}
