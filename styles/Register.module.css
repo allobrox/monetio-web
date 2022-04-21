@@ -3,9 +3,22 @@
     justify-content: center;
     align-content: center;
     height: 100vh;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .register_card {
     margin: auto;
     width: 30rem;
+}
+
+.register_button {
+    margin-top: 2.5rem;
+}
+
+.register_form {
+    margin-top: 3rem;
+}
+
+@media only screen and (min-width: 769px) {
 }

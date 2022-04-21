@@ -18,7 +18,7 @@ const Register: NextPage = () => {
                 <Card className={styles.register_card}>
                     <Card.Body>
                         <Card.Title>Registration</Card.Title>
-                        <Form>
+                        <Form className={styles.register_form}>
                             <Form.Group
                                 className="mb-3"
                                 controlId="exampleForm.ControlInput1"
@@ -46,7 +46,12 @@ const Register: NextPage = () => {
                             </Form.Group>
                         </Form>
 
-                        <Button variant="primary">Register</Button>
+                        <Button
+                            className={styles.register_button}
+                            variant="primary"
+                        >
+                            Register
+                        </Button>
                     </Card.Body>
                 </Card>
             </main>
