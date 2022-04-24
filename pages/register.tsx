@@ -1,9 +1,15 @@
 import { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import styles from "../styles/Register.module.css";
 
 const Register: NextPage = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [password2, setPassword2] = useState("");
+    const [tcAccepted, setTcAccepted] = useState(false);
+
     return (
         <div>
             <Head>
@@ -30,12 +36,22 @@ const Register: NextPage = () => {
                                 />
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label htmlFor="inputPassword5">
+                                <Form.Label htmlFor="inputPassword">
                                     Password
                                 </Form.Label>
                                 <Form.Control
                                     type="password"
-                                    id="inputPassword5"
+                                    id="inputPassword"
+                                    aria-describedby="passwordHelpBlock"
+                                />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label htmlFor="inputPassword2">
+                                    Re-enter password
+                                </Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    id="inputPassword2"
                                     aria-describedby="passwordHelpBlock"
                                 />
                                 <Form.Text id="passwordHelpBlock" muted>
@@ -44,6 +60,20 @@ const Register: NextPage = () => {
                                     numbers and special characters.
                                 </Form.Text>
                             </Form.Group>
+                            <Form.Check
+                                type={"checkbox"}
+                                id={"default-checkbox"}
+                                label={
+                                    <p>
+                                        I accept&nbsp;
+                                        <a href="/tc" target="blank">
+                                            T&amp;C
+                                        </a>
+                                    </p>
+                                }
+                                checked={tcAccepted}
+                                onChange={() => setTcAccepted(!tcAccepted)}
+                            />
                         </Form>
 
                         <Button
