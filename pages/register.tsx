@@ -1,3 +1,4 @@
+import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
@@ -33,6 +34,7 @@ const Register: NextPage = () => {
                                 <Form.Control
                                     type="email"
                                     placeholder="name@example.com"
+                                    onChange={e => setEmail(e.target.value)}
                                 />
                             </Form.Group>
                             <Form.Group>
@@ -43,6 +45,7 @@ const Register: NextPage = () => {
                                     type="password"
                                     id="inputPassword"
                                     aria-describedby="passwordHelpBlock"
+                                    onChange={e => setPassword(e.target.value)}
                                 />
                             </Form.Group>
                             <Form.Group>
@@ -53,6 +56,7 @@ const Register: NextPage = () => {
                                     type="password"
                                     id="inputPassword2"
                                     aria-describedby="passwordHelpBlock"
+                                    onChange={e => setPassword2(e.target.value)}
                                 />
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Your password must be min. 8 characters
@@ -79,6 +83,15 @@ const Register: NextPage = () => {
                         <Button
                             className={styles.register_button}
                             variant="primary"
+                            //TODO add validation to onClick
+                            onClick={() =>
+                                axios
+                                    .post("http://localhost:3000/api/register", {
+                                        email: email,
+                                        password: password
+                                    })
+                                    .then(res => alert(res.status))
+                            }
                         >
                             Register
                         </Button>

@@ -41,3 +41,6 @@ yarn-error.log*
 *.ipr
 *.iws
 .idea/
+
+# environment variables
+.env.local
