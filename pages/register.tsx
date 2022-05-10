@@ -79,22 +79,37 @@ const Register: NextPage = () => {
                                 onChange={() => setTcAccepted(!tcAccepted)}
                             />
                         </Form>
-
-                        <Button
-                            className={styles.register_button}
-                            variant="primary"
-                            //TODO add validation to onClick
-                            onClick={() =>
-                                axios
-                                    .post("http://localhost:3000/api/register", {
-                                        email: email,
-                                        password: password
-                                    })
-                                    .then(res => alert(res.status))
-                            }
-                        >
-                            Register
-                        </Button>
+                        {email.length > 0 &&
+                        password.length > 0 &&
+                        password === password2 &&
+                        tcAccepted ? (
+                            <Button
+                                className={styles.register_button}
+                                variant="primary"
+                                //TODO add validation to onClick
+                                onClick={() =>
+                                    axios
+                                        .post(
+                                            "http://localhost:3000/api/register",
+                                            {
+                                                email: email,
+                                                password: password
+                                            }
+                                        )
+                                        .then(res => alert(res.status))
+                                }
+                            >
+                                Register
+                            </Button>
+                        ) : (
+                            <Button
+                                className={styles.register_button}
+                                variant="secondary"
+                                disabled
+                            >
+                                Register
+                            </Button>
+                        )}
                     </Card.Body>
                 </Card>
             </main>
