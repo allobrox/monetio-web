@@ -4,12 +4,43 @@ import Head from "next/head";
 import { useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import styles from "../styles/Register.module.css";
+import passwordValidator from "password-validator";
 
 const Register: NextPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [tcAccepted, setTcAccepted] = useState(false);
+
+    function validateEmail(): boolean {
+        const regexp = new RegExp(
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+        return regexp.test(email);
+    }
+
+    function validatePassword(): boolean {
+        const schema = new passwordValidator();
+
+        schema
+            .is()
+            .min(8) // Minimum length 8
+            .is()
+            .max(100) // Maximum length 100
+            .has()
+            .uppercase() // Must have uppercase letters
+            .has()
+            .lowercase() // Must have lowercase letters
+            .has()
+            .digits(1)
+            .has()
+            .symbols()
+            .has()
+            .not()
+            .spaces();
+
+        return schema.validate(password);
+    }
 
     return (
         <div>
@@ -80,8 +111,10 @@ const Register: NextPage = () => {
                             />
                         </Form>
                         {email.length > 0 &&
+                        validateEmail() &&
                         password.length > 0 &&
                         password === password2 &&
+                        validatePassword() &&
                         tcAccepted ? (
                             <Button
                                 className={styles.register_button}
