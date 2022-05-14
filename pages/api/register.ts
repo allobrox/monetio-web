@@ -5,6 +5,9 @@ import { createFinancialGroup } from "../../repository/financial-group.repositor
 import { FinancialGroup } from "../../model/entity/finalcial-group.entity";
 import { getUnixTime } from "date-fns";
 import { getClient } from "../../core/db-client";
+import { User } from "../../model/entity/user.entity";
+import { hashPassword } from "../../core/services/password-hash.service";
+import { createUser } from "../../repository/user.repository.query";
 
 export default async function handler(
     req: NextApiRequest,
@@ -18,27 +21,28 @@ export default async function handler(
         defaultCurrency: "EUR",
         lastModified: unixNow
     };
-    console.log("Financial group created");
+    const userId: string = uuidv4();
+    const user: User = {
+        createdAt: unixNow,
+        email: req.body.email,
+        groupId: financialGroupId,
+        id: userId,
+        modifiedAt: unixNow,
+        password: hashPassword(req.body.password)
+    };
     try {
         await databaseClient.query("BEGIN");
         const financialGroupPromise = databaseClient.query(
             createFinancialGroup(financialGroup)
         );
-        console.log("Financial group query created");
-        await Promise.all([financialGroupPromise]);
-        console.log("Financial group query executed");
+        const userPromise = databaseClient.query(createUser(user));
+        await Promise.all([financialGroupPromise, userPromise]);
         await databaseClient.query("END");
-        console.log("Success");
     } catch (e) {
         databaseClient.query("ROLLBACK");
-        console.log("Rollback");
     } finally {
         databaseClient.release();
-        console.log("Releasing client");
     }
-
-    const userId: string = uuidv4();
-    //TODO save user
 
     const mailClient = new SMTPClient({
         user: process.env.EMAIL_USER,

@@ -1,6 +1,5 @@
 export interface User {
     id?: string;
-    accountType?: string;
     createdAt?: number;
     email?: string;
     groupId?: string;
@@ -13,7 +12,6 @@ export interface User {
 
 export interface DatabaseUser {
     id: string;
-    account_type: string;
     created_at: number;
     email: string;
     group_id: string;
@@ -27,7 +25,6 @@ export interface DatabaseUser {
 export function convertUser(dbEntity: DatabaseUser): User {
     return {
         id: dbEntity.id,
-        accountType: dbEntity.account_type,
         createdAt: dbEntity.created_at,
         email: dbEntity.email,
         groupId: dbEntity.group_id,
