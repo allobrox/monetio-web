@@ -39,7 +39,7 @@ const Register: NextPage = () => {
             .not()
             .spaces();
 
-        return schema.validate(password);
+        return Boolean(schema.validate(password));
     }
 
     return (
