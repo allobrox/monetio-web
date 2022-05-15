@@ -13,6 +13,8 @@ import { createWallet } from "../../repository/wallet.repository.query";
 import { WalletRole } from "../../model/entity/wallet-role.entity";
 import { UserRole } from "../../model/enum/user-role";
 import { createWalletRole } from "../../repository/wallet-role.repository.conf";
+import { createPredefinedCategories } from "../../core/services/predefined-category.service";
+import { createCategories } from "../../repository/category.repository.config";
 
 export default async function handler(
     req: NextApiRequest,
@@ -51,8 +53,16 @@ export default async function handler(
         userRole: UserRole.ADMIN,
         walletId: walletId
     };
+    const predefinedCategories = createPredefinedCategories(
+        unixNow,
+        financialGroupId,
+        walletId
+    );
     try {
         await databaseClient.query("BEGIN");
+        const categoriesPromise = databaseClient.query(
+            createCategories(predefinedCategories)
+        );
         const financialGroupPromise = databaseClient.query(
             createFinancialGroup(financialGroup)
         );
@@ -62,6 +72,7 @@ export default async function handler(
             createWalletRole(walletRole)
         );
         await Promise.all([
+            categoriesPromise,
             financialGroupPromise,
             userPromise,
             walletPromise,
@@ -69,6 +80,7 @@ export default async function handler(
         ]);
         await databaseClient.query("END");
     } catch (e) {
+        console.log(e);
         databaseClient.query("ROLLBACK");
     } finally {
         databaseClient.release();

@@ -1,3 +1,15 @@
+create table category
+(
+    id          varchar(50),
+    name        varchar(50) not null,
+    type        varchar(50) not null,
+    group_id    varchar(50) not null,
+    wallet_id   varchar(50) not null,
+    created_at  bigint      not null,
+    modified_at bigint      not null,
+    primary key (id)
+);
+
 create table financial_group
 (
     id          varchar(50),
