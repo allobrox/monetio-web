@@ -3,7 +3,7 @@ import { getByName, UserRole } from "../enum/user-role";
 export interface WalletRole {
     id?: string;
     userId?: string;
-    userRole?: UserRole;
+    userRole: UserRole;
     walletId?: string;
 }
 

@@ -33,3 +33,14 @@ create table wallet
     modified_at bigint      not null,
     primary key (id)
 );
+
+create table wallet_role
+(
+    id        varchar(50),
+    user_id   varchar(50) not null,
+    wallet_id varchar(50) not null,
+    user_role smallint    not null,
+    primary key (id)
+);
+
+create index role_by_id on wallet_role (user_id);

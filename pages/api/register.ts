@@ -10,6 +10,9 @@ import { hashPassword } from "../../core/services/password-hash.service";
 import { createUser } from "../../repository/user.repository.query";
 import { Wallet } from "../../model/entity/wallet.entity";
 import { createWallet } from "../../repository/wallet.repository.query";
+import { WalletRole } from "../../model/entity/wallet-role.entity";
+import { UserRole } from "../../model/enum/user-role";
+import { createWalletRole } from "../../repository/wallet-role.repository.conf";
 
 export default async function handler(
     req: NextApiRequest,
@@ -42,6 +45,12 @@ export default async function handler(
         modifiedAt: unixNow,
         name: "Main"
     };
+    const walletRole: WalletRole = {
+        id: uuidv4(),
+        userId: userId,
+        userRole: UserRole.ADMIN,
+        walletId: walletId
+    };
     try {
         await databaseClient.query("BEGIN");
         const financialGroupPromise = databaseClient.query(
@@ -49,7 +58,15 @@ export default async function handler(
         );
         const userPromise = databaseClient.query(createUser(user));
         const walletPromise = databaseClient.query(createWallet(wallet));
-        await Promise.all([financialGroupPromise, userPromise, walletPromise]);
+        const walletRolePromise = databaseClient.query(
+            createWalletRole(walletRole)
+        );
+        await Promise.all([
+            financialGroupPromise,
+            userPromise,
+            walletPromise,
+            walletRolePromise
+        ]);
         await databaseClient.query("END");
     } catch (e) {
         databaseClient.query("ROLLBACK");
