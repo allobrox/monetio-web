@@ -21,3 +21,15 @@ create table users
 );
 
 create unique index user_by_email on users (email);
+
+create table wallet
+(
+    id          varchar(50),
+    name        varchar(50) not null,
+    group_id    varchar(50) not null,
+    is_active   boolean     not null default true,
+    issuer      varchar(50) not null,
+    created_at  bigint      not null,
+    modified_at bigint      not null,
+    primary key (id)
+);

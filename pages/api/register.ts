@@ -8,6 +8,8 @@ import { getClient } from "../../core/db-client";
 import { User } from "../../model/entity/user.entity";
 import { hashPassword } from "../../core/services/password-hash.service";
 import { createUser } from "../../repository/user.repository.query";
+import { Wallet } from "../../model/entity/wallet.entity";
+import { createWallet } from "../../repository/wallet.repository.query";
 
 export default async function handler(
     req: NextApiRequest,
@@ -30,13 +32,24 @@ export default async function handler(
         modifiedAt: unixNow,
         password: hashPassword(req.body.password)
     };
+    const walletId: string = uuidv4();
+    const wallet: Wallet = {
+        id: walletId,
+        createdAt: unixNow,
+        groupId: financialGroupId,
+        isActive: true,
+        issuerId: userId,
+        modifiedAt: unixNow,
+        name: "Main"
+    };
     try {
         await databaseClient.query("BEGIN");
         const financialGroupPromise = databaseClient.query(
             createFinancialGroup(financialGroup)
         );
         const userPromise = databaseClient.query(createUser(user));
-        await Promise.all([financialGroupPromise, userPromise]);
+        const walletPromise = databaseClient.query(createWallet(wallet));
+        await Promise.all([financialGroupPromise, userPromise, walletPromise]);
         await databaseClient.query("END");
     } catch (e) {
         databaseClient.query("ROLLBACK");
