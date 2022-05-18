@@ -15,11 +15,21 @@ import { UserRole } from "../../model/enum/user-role";
 import { createWalletRole } from "../../repository/wallet-role.repository.conf";
 import { createPredefinedCategories } from "../../core/services/predefined-category.service";
 import { createCategories } from "../../repository/category.repository.config";
+import { Claims } from "../../model/dto/claims.dto";
+import {
+    putClaimsByEmail,
+    putClaimsByUserId
+} from "../../core/cache-repository/claims.cache-repository";
+import { RegisterUser } from "../../model/dto/register-user.dto";
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    const registerUser: RegisterUser = {
+        email: req.body.email,
+        password: req.body.password
+    };
     const databaseClient = await getClient();
     const financialGroupId: string = uuidv4();
     const unixNow = getUnixTime(new Date());
@@ -31,7 +41,7 @@ export default async function handler(
     const userId: string = uuidv4();
     const user: User = {
         createdAt: unixNow,
-        email: req.body.email,
+        email: registerUser.email,
         groupId: financialGroupId,
         id: userId,
         modifiedAt: unixNow,
@@ -97,7 +107,7 @@ export default async function handler(
         const message = await mailClient.sendAsync({
             text: "Welcome",
             from: "monetio <info@monetio.app>",
-            to: `<${req.body.email}>`,
+            to: `<${registerUser.email}>`,
             subject: "Welcome to monetio",
             attachment: [
                 {
@@ -107,10 +117,29 @@ export default async function handler(
                 }
             ]
         });
-        console.log(`Welcome mail sent to ${req.body.email}`);
+        console.log(`Welcome mail sent to ${registerUser.email}`);
     } catch (err) {
         console.error(err);
     }
+
+    const claims: Claims = {
+        defaultCurrencyCode: financialGroup.defaultCurrency,
+        groupId: financialGroupId,
+        sub: userId,
+        wallets: [userId + "|" + "ADMIN"]
+    };
+    const putClaimsByEmailPromise = putClaimsByEmail(
+        claims,
+        registerUser.email
+    );
+
+    const putClaimsByUserIdPromise = putClaimsByUserId(claims, userId);
+    Promise.all([putClaimsByEmailPromise, putClaimsByUserIdPromise]).catch(
+        err => console.log(`Error while putting claims to cache: ${err}`)
+    );
+    // TODO create ValidTokenMetadata
+    // TODO cache ValidTokenMetadata
+    // TODO generate token and send back to the user
 
     res.status(200).json({});
 }
