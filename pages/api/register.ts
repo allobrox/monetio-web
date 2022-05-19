@@ -21,6 +21,8 @@ import {
     putClaimsByUserId
 } from "../../core/cache-repository/claims.cache-repository";
 import { RegisterUser } from "../../model/dto/register-user.dto";
+import { ValidTokenMetadata } from "../../model/dto/valid-token-metadata.dto";
+import { putTokenMetadataByUserId } from "../../core/cache-repository/token-metadata.cache.repository";
 
 export default async function handler(
     req: NextApiRequest,
@@ -128,17 +130,29 @@ export default async function handler(
         sub: userId,
         wallets: [userId + "|" + "ADMIN"]
     };
+
     const putClaimsByEmailPromise = putClaimsByEmail(
         claims,
         registerUser.email
     );
-
     const putClaimsByUserIdPromise = putClaimsByUserId(claims, userId);
-    Promise.all([putClaimsByEmailPromise, putClaimsByUserIdPromise]).catch(
-        err => console.log(`Error while putting claims to cache: ${err}`)
+
+    const validTokenMetadata: ValidTokenMetadata = {
+        groupId: financialGroupId,
+        user: { id: userId, groupId: financialGroupId },
+        validWalletIds: [walletId],
+        walletRoles: [walletRole]
+    };
+    const putTokenMetadataByUserIdPromise = putTokenMetadataByUserId(
+        validTokenMetadata,
+        userId
     );
-    // TODO create ValidTokenMetadata
-    // TODO cache ValidTokenMetadata
+
+    Promise.all([
+        putClaimsByEmailPromise,
+        putClaimsByUserIdPromise,
+        putTokenMetadataByUserIdPromise
+    ]).catch(err => console.log(`Error while putting claims to cache: ${err}`));
     // TODO generate token and send back to the user
 
     res.status(200).json({});
