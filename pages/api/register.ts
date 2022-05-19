@@ -6,14 +6,14 @@ import { FinancialGroup } from "../../model/entity/finalcial-group.entity";
 import { getUnixTime } from "date-fns";
 import { getClient } from "../../core/db-client";
 import { User } from "../../model/entity/user.entity";
-import { hashPassword } from "../../core/services/password-hash.service";
+import { hashPassword } from "../../core/service/password-hash.service";
 import { createUser } from "../../repository/user.repository.query";
 import { Wallet } from "../../model/entity/wallet.entity";
 import { createWallet } from "../../repository/wallet.repository.query";
 import { WalletRole } from "../../model/entity/wallet-role.entity";
 import { UserRole } from "../../model/enum/user-role";
 import { createWalletRole } from "../../repository/wallet-role.repository.conf";
-import { createPredefinedCategories } from "../../core/services/predefined-category.service";
+import { createPredefinedCategories } from "../../core/service/predefined-category.service";
 import { createCategories } from "../../repository/category.repository.config";
 import { Claims } from "../../model/dto/claims.dto";
 import {
@@ -164,8 +164,10 @@ export default async function handler(
         putClaimsByUserIdPromise,
         putTokenMetadataByUserIdPromise,
         putUserByEmailPromise
-    ]).catch(err => console.log(`Error while putting claims to cache: ${err}`));
-    
+    ]).catch(err =>
+        console.log(`Error while populating cache at registration: ${err}`)
+    );
+
     // TODO generate token and send back to the user
 
     res.status(200).json({});

@@ -1,5 +1,5 @@
 import { User } from "../../model/entity/user.entity";
-import { get, set } from "../services/redis-cache.service";
+import { get, set } from "../service/redis-cache.service";
 
 export async function getUserByEmail(email: string): Promise<User> {
     return await get(`user:${email}`);

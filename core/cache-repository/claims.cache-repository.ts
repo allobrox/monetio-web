@@ -1,5 +1,5 @@
 import { Claims } from "../../model/dto/claims.dto";
-import { get, set } from "../services/redis-cache.service";
+import { get, set } from "../service/redis-cache.service";
 
 export async function getClaimsByEmail(email: string): Promise<Claims> {
     return await get(`claims:${email}`);

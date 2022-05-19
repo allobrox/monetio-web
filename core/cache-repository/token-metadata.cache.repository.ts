@@ -1,5 +1,5 @@
 import { ValidTokenMetadata } from "../../model/dto/valid-token-metadata.dto";
-import { get, set } from "../services/redis-cache.service";
+import { get, set } from "../service/redis-cache.service";
 
 export async function getTokenMetadataByUserId(
     userId: string
