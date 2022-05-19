@@ -23,6 +23,7 @@ import {
 import { RegisterUser } from "../../model/dto/register-user.dto";
 import { ValidTokenMetadata } from "../../model/dto/valid-token-metadata.dto";
 import { putTokenMetadataByUserId } from "../../core/cache-repository/token-metadata.cache.repository";
+import { putUserByEmail } from "../../core/cache-repository/user.cache.repository";
 
 export default async function handler(
     req: NextApiRequest,
@@ -41,13 +42,14 @@ export default async function handler(
         lastModified: unixNow
     };
     const userId: string = uuidv4();
+    const hashedPassword: string = hashPassword(req.body.password);
     const user: User = {
         createdAt: unixNow,
         email: registerUser.email,
         groupId: financialGroupId,
         id: userId,
         modifiedAt: unixNow,
-        password: hashPassword(req.body.password)
+        password: hashedPassword
     };
     const walletId: string = uuidv4();
     const wallet: Wallet = {
@@ -148,11 +150,22 @@ export default async function handler(
         userId
     );
 
+    const putUserByEmailPromise = putUserByEmail(
+        {
+            id: userId,
+            groupId: financialGroupId,
+            password: hashedPassword
+        },
+        registerUser.email
+    );
+
     Promise.all([
         putClaimsByEmailPromise,
         putClaimsByUserIdPromise,
-        putTokenMetadataByUserIdPromise
+        putTokenMetadataByUserIdPromise,
+        putUserByEmailPromise
     ]).catch(err => console.log(`Error while putting claims to cache: ${err}`));
+    
     // TODO generate token and send back to the user
 
     res.status(200).json({});
