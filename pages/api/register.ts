@@ -117,7 +117,9 @@ export default async function handler(
             attachment: [
                 {
                     //TODO create verify API
-                    data: `<html><p>Thanks for registering to monetio!</p><br><p>Please verify your email address!</p><p>Thank you!</p><br><br><a href="http://localhost:3000/api/verify/${userId}" target="_blank">Verify Email Now</a></html>`,
+                    data: `<html><p>Thanks for registering to monetio!</p><br><p>Please verify your email address!</p><p>Thank you!</p><br><br><a href="http://localhost:3000/api/verify/${hashPassword(
+                        userId
+                    )}" target="_blank">Verify Email Now</a></html>`,
                     alternative: true
                 }
             ]
@@ -172,7 +174,7 @@ export default async function handler(
     claims.expiry =
         Math.floor(Date.now() / 1000) + Number(process.env.TOKEN_EXPIRY) * 60;
     const token = generate(claims);
-    
+
     res.setHeader("token", token);
     res.status(201).json({});
 }
