@@ -106,8 +106,8 @@ const Register: NextPage = () => {
                                 />
                                 <Form.Text id="passwordHelpBlock" muted>
                                     Your password must be min. 8 characters
-                                    long, contain letters, capital letters,
-                                    numbers and special characters.
+                                    long, contain a letter, capital letter,
+                                    number and a special character.
                                 </Form.Text>
                             </Form.Group>
                             <Form.Check
