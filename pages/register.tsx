@@ -1,16 +1,19 @@
 import axios from "axios";
 import { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import styles from "../styles/Register.module.css";
 import passwordValidator from "password-validator";
 
 const Register: NextPage = () => {
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [tcAccepted, setTcAccepted] = useState(false);
+
+    useEffect(() => {}, [loading]);
 
     function validateEmail(): boolean {
         const regexp = new RegExp(
@@ -40,6 +43,18 @@ const Register: NextPage = () => {
             .spaces();
 
         return Boolean(schema.validate(password));
+    }
+
+    function register(): void {
+        setLoading(true);
+        axios
+            .post("http://localhost:3000/api/register", {
+                email: email,
+                password: password
+            })
+            .then(res => {
+                setLoading(false), alert(res.status);
+            });
     }
 
     return (
@@ -110,39 +125,23 @@ const Register: NextPage = () => {
                                 onChange={() => setTcAccepted(!tcAccepted)}
                             />
                         </Form>
-                        {email.length > 0 &&
-                        validateEmail() &&
-                        password.length > 0 &&
-                        password === password2 &&
-                        validatePassword() &&
-                        tcAccepted ? (
-                            <Button
-                                className={styles.register_button}
-                                variant="primary"
-                                //TODO add validation to onClick
-                                onClick={() =>
-                                    axios
-                                        .post(
-                                            "http://localhost:3000/api/register",
-                                            {
-                                                email: email,
-                                                password: password
-                                            }
-                                        )
-                                        .then(res => alert(res.status))
-                                }
-                            >
-                                Register
-                            </Button>
-                        ) : (
-                            <Button
-                                className={styles.register_button}
-                                variant="secondary"
-                                disabled
-                            >
-                                Register
-                            </Button>
-                        )}
+
+                        <Button
+                            className={styles.register_button}
+                            disabled={
+                                email.length == 0 ||
+                                !validateEmail() ||
+                                password.length == 0 ||
+                                password !== password2 ||
+                                !validatePassword() ||
+                                !tcAccepted ||
+                                loading
+                            }
+                            variant="primary"
+                            onClick={register}
+                        >
+                            {loading ? "Loading..." : "Register"}
+                        </Button>
                     </Card.Body>
                 </Card>
             </main>
