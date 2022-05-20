@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import styles from "../styles/Register.module.css";
 import passwordValidator from "password-validator";
+import { useRouter } from "next/router";
 
 const Register: NextPage = () => {
     const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ const Register: NextPage = () => {
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
     const [tcAccepted, setTcAccepted] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {}, [loading]);
 
@@ -53,8 +55,11 @@ const Register: NextPage = () => {
                 password: password
             })
             .then(res => {
-                setLoading(false), alert(res.status);
+                setLoading(false);
             });
+        if (typeof window !== "undefined") {
+            router.push("/budgeting/balance");
+        }
     }
 
     return (
