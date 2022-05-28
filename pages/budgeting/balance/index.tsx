@@ -13,8 +13,9 @@ const Index: NextPage = () => {
                 <link rel="icon" href="/favicon16.jpg" />
             </Head>
             <main className={styles.balance}>
-                <AppNavbar />
-                <BalanceView />
+                {/* <AppNavbar />
+                <BalanceView /> */}
+                Balance view
             </main>
         </div>
     );
