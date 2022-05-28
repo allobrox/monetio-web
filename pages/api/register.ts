@@ -117,9 +117,7 @@ export default async function handler(
             attachment: [
                 {
                     //TODO create verify API
-                    data: `<html><p>Thanks for registering to monetio!</p><br><p>Please verify your email address!</p><p>Thank you!</p><br><br><a href="http://localhost:3000/api/verify/${hashPassword(
-                        userId
-                    )}" target="_blank">Verify Email Now</a></html>`,
+                    data: `<html><p>Thanks for registering to monetio!</p><br><p>Please verify your email address!</p><p>Thank you!</p><br><br><a href="http://localhost:3000/verify/${userId}" target="_blank">Verify Email Now</a></html>`,
                     alternative: true
                 }
             ]
