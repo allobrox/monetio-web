@@ -53,9 +53,12 @@ const Login: NextPage = () => {
                 email: email,
                 password: password
             })
-            .then(res => {
+            .then(response => {
                 setLoading(false);
+                setEmail("");
+                setPassword("");
                 if (typeof window !== "undefined") {
+                    localStorage.setItem("token", response.headers["token"]);
                     router.push("/budgeting/balance");
                 }
             });
@@ -103,7 +106,7 @@ const Login: NextPage = () => {
                                     number and a special character.
                                 </Form.Text>
                             </Form.Group>
-                           <Link href='/auth/reset'>Forgot password?</Link>
+                            <Link href="/auth/reset">Forgot password?</Link>
                         </Form>
 
                         <Button
