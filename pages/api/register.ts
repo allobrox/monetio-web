@@ -24,7 +24,7 @@ import { RegisterUser } from "../../model/dto/register-user.dto";
 import { ValidTokenMetadata } from "../../model/dto/valid-token-metadata.dto";
 import { putTokenMetadataByUserId } from "../../core/cache-repository/token-metadata.cache.repository";
 import { putUserByEmail } from "../../core/cache-repository/user.cache.repository";
-import { generate } from "../../core/service/token-generator.service";
+import { generateToken } from "../../core/service/token-generator.service";
 
 export default async function handler(
     req: NextApiRequest,
@@ -171,7 +171,7 @@ export default async function handler(
 
     claims.expiry =
         Math.floor(Date.now() / 1000) + Number(process.env.TOKEN_EXPIRY) * 60;
-    const token = generate(claims);
+    const token = generateToken(claims);
 
     res.setHeader("token", token);
     res.status(201).json({});
