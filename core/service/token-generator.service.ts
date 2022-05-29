@@ -1,7 +1,7 @@
 import { Claims } from "../../model/dto/claims.dto";
 import * as jwt from "jsonwebtoken";
 
-export function generate(claims: Claims): string {
+export function generateToken(claims: Claims): string {
     return jwt.sign(
         {
             exp: claims.expiry,
